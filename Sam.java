@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tower;
 
 /**
@@ -10,13 +6,13 @@ package tower;
  */
 public class Sam extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Sam
-     */
+    int num;
+    Susan tawa = new Susan();
+
     public Sam() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,28 +23,22 @@ public class Sam extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        aros = new javax.swing.JLabel();
-        proced = new javax.swing.JLabel();
         nAros = new javax.swing.JTextField();
         boton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        han = new javax.swing.JTextPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        nmov = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Torres de Hanoi -- By Yamishi");
         setMinimumSize(new java.awt.Dimension(450, 320));
         setPreferredSize(new java.awt.Dimension(420, 350));
         getContentPane().setLayout(null);
-
-        aros.setText("Numero de Aros");
-        aros.setMaximumSize(new java.awt.Dimension(99999, 999999));
-        getContentPane().add(aros);
-        aros.setBounds(30, 30, 80, 20);
-
-        proced.setText("Procedimiento");
-        getContentPane().add(proced);
-        proced.setBounds(30, 200, 70, 20);
 
         nAros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +48,8 @@ public class Sam extends javax.swing.JFrame {
         getContentPane().add(nAros);
         nAros.setBounds(130, 30, 40, 30);
 
-        boton.setText("Proceder");
+        boton.setText("RESOLVER");
+        boton.setToolTipText("");
         boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonActionPerformed(evt);
@@ -67,16 +58,38 @@ public class Sam extends javax.swing.JFrame {
         getContentPane().add(boton);
         boton.setBounds(130, 70, 150, 40);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        han.setEditable(false);
+        jScrollPane1.setViewportView(han);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(100, 140, 280, 150);
+
+        jLabel2.setText("Numero de aros");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 40, 90, 20);
+
+        jLabel3.setText("Procedimiento");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 210, 80, 14);
+
+        jLabel4.setText("Numero de movimientos");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(190, 40, 140, 14);
+
+        nmov.setEditable(false);
+        getContentPane().add(nmov);
+        nmov.setBounds(340, 30, 40, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
-        // TODO add your handling code here:
+        num = Integer.parseInt(nAros.getText());
+        tawa.intDatos(num);
+        han.setText(tawa.hanoi());
+        nmov.setText(Integer.toString(tawa.mov()));
+        tawa.reset();
+        
     }//GEN-LAST:event_botonActionPerformed
 
     private void nArosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nArosActionPerformed
@@ -118,12 +131,14 @@ public class Sam extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aros;
     private javax.swing.JButton boton;
+    private javax.swing.JTextPane han;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField nAros;
-    private javax.swing.JLabel proced;
+    private javax.swing.JTextField nmov;
     // End of variables declaration//GEN-END:variables
 }
