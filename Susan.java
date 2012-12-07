@@ -16,7 +16,7 @@ public class Susan {
     }
     
     public String hanoi() {
-        moveTower(num, 'A', 'B', 'C');
+        moveTower(num, 'A', 'C', 'B');
         return res;
     }
     
